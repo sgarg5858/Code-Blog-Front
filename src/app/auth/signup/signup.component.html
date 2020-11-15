@@ -1,0 +1,66 @@
+<div style="width: 100vw;height: 100vh;background-color: dodgerblue;">
+    <div class="container">
+        <div class="row">
+            <div 
+            class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-8 offset-xs-2 "
+            >
+                <mat-card
+                style="display: flex;flex-direction: column;align-items: center;margin-top: 20vh;">
+                    <mat-card-header>
+                        <mat-card-title>CODE & BLOG</mat-card-title>
+                    </mat-card-header>
+                    <form style="display: flex; flex-direction: column;align-items: center;" [formGroup]="signupForm" (ngSubmit)="  onSignup()">
+
+                        <mat-form-field>
+                            <input placeholder="Name" matInput type="text" formControlName="name">
+                            <mat-error *ngIf="signupForm.controls.name.errors">
+                                <span *ngIf="signupForm.controls.name.errors.required">
+                                    Name is required
+                                </span>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input placeholder="Email" matInput type="email" formControlName="userEmail">
+                            <mat-error *ngIf="signupForm.controls.userEmail.errors">
+                                <span *ngIf="signupForm.controls.userEmail.errors.required">
+                                    Email is required
+                                </span>
+                                <span *ngIf="signupForm.controls.userEmail.errors.email">
+                                    Enter valid email
+                                </span>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Password" type="password" formControlName="userPassword">
+                            <mat-error *ngIf="signupForm.controls.userPassword.errors">
+                                <span *ngIf="signupForm.controls.userPassword.errors.required">
+                                    Password is required
+                                </span>
+                                <span *ngIf="signupForm.controls.userPassword.errors.minlength">
+                                    Password must contain atleast 6 characters
+                                </span>
+                            </mat-error>
+                        </mat-form-field>
+                        <button [class.spinner]="loading" [disabled]="loading" type="submit" mat-raised-button color="primary">
+                            Sign up
+                        </button>
+                    </form>
+                    <span  *ngIf="isError" style="color: red;font-size: 16px;font-weight: 400;margin-top: 10px;">
+                        {{isError}}
+                    </span>
+                </mat-card>
+    
+                <mat-card style="display: flex;flex-direction: column;align-items: center;margin-top: 20px;">
+                    <p>
+                        Already have an account?
+                        <a routerLink="/login">
+                            login
+                        </a>
+                    </p>
+                </mat-card>
+              
+            </div>
+        </div>
+    </div>
+</div>

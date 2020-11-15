@@ -1,0 +1,33 @@
+mat-form-field{
+    min-width: 240px;
+    width: auto;
+}
+button{
+    min-width: 120px;
+    width: 120px;
+}
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+   
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: #000000;
+    animation: spinner .5s linear infinite;
+  }
+
+  /** No CSS for this example */
+  .mat-card{
+    box-shadow:0px 0px 30px rgba(0,0,0,0.17);
+    border-radius: 10px;
+  }
